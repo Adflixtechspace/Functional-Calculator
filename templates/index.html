@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='homestyles.css') }}" />
+{% endblock %}
+{% block main_content %}
+<p>Please select the mode you want to enter into first:</p>
+<a href="{{url_for('calculator')}}">Calculator mode</a>
+<a href="{{url_for('functionMaker')}}">Function Maker mode</a>
+{% endblock %}

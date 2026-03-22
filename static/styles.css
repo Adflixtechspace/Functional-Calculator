@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: large;
+    margin:0em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+
+    /*colors*/
+    --main-header: #f3836a;
+    --main-main: #e6ac39;
+    --main-box: #ffda8f;
+    --main-border: #6b4905;
+    --main-footer: #2bc7a3;
+}
+
+header {
+    background-color: var(--main-header);
+    padding: 2em 5%;
+    height:auto;
+}
+
+main {
+    background-color: var(--main-main);
+    padding: 3em 5%;
+    flex: 1;
+}
+
+footer {
+    background-color: var(--main-footer);
+    padding: 2em 5%;
+    height:auto;
+}
+
+p {
+    margin: 1.5em 0em;
+}
+
+input {
+    display: inline-block; /* this is crucial */
+    background-color: var(--main-box);
+    margin: 1% 1em;
+    border-radius: 2px;
+    transition: transform 0.5s;
+}
+
+main a {
+    display: inline-block; /* this is crucial */
+    background-color: var(--main-box);
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 1%;
+    color: #69521f;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.5s;
+}
+
+main a:hover, input:hover {
+    transform: scale(1.2);
+}
+
+
+table {
+    margin: 0 auto; /* centers the table horizontally */
+    border-collapse: collapse; /* optional: cleaner look */
+}
+
+tr {
+    border: 1px solid var(--main-border);
+}
+
+td {
+    text-align: center;      /* centers text inside cells */
+    vertical-align: middle;  /* vertically centers content */
+    padding: 4px;            /* optional spacing */
+    background-color: var(--main-box);
+}
+
+
+form {
+    margin: 5% 0%;
+}
+
+@media screen and (min-width: 700px) {
+
+    header, footer {
+        padding: 3em 5%;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+}

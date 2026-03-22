@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    {% block link %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <h1>{{title}}</h1>
+    </header>
+    <main>{% block main_content %}{% endblock %}</main>
+    <footer>
+        <p>&copy; 2025-2026 Adam Field (@adflixtechspace).</p>
+        <p>Contact: <a href="https://instagram.com/adflixtechspace">Instagram</a> |
+            <a href="https://tiktok.com/@adflixtechspace">TikTok</a> |
+            <a href="https://youtube.com/@adflixtechspace">YouTube</a> |
+            <a href="https://snapchat.com/add/adflixtechspace">Snapchat</a>
+        </p>
+    </footer>
+</body>
+
+</html>

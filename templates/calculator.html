@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<section>
+<p>In Calculator Mode, you can input mathematical expressions using numbers, operators, and functions you create and it will return the output.</p>
+<p>In the expression box, make sure to include circular brackets () with the value of the variable inside the brackets.</p>
+
+<a href="{{url_for('functionMaker')}}">Switch to Function Maker Mode</a>
+
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+
+    {{form.expression.label}}
+    {{form.expression()}}
+    {% for error in form.expression.errors %}
+        {{ error }}
+    {% endfor %}
+    <br/>
+
+    {{form.result.label}}
+    {{form.result(disabled=True)}}
+    <br/>
+
+    {{form.submit()}}
+</form>
+
+<p>{{ error }}</p>
+
+</section>
+<section>
+{% if functions_list %}
+    <p>Currently existing functions:</p>
+    <table>
+        {% for function in functions_list %}
+        <tr>
+            <td>{{ function["name"] }}</td>
+            <td>=</td>
+            <td> {{ function["expression"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<section>
+<p>In Function Maker Mode, you can specify a valid function name and you will then be prompted to input the expression. The function is written in terms of x, y and/or z (unused variables default to 1)</p>
+<p>Make sure to input a name without any brackets. Brackets will be added in calculator mode.</p>
+
+<a href="{{url_for('calculator')}}">Switch to Calculator Mode</a>
+
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+
+    {{form.name.label}}
+    {{form.name()}}
+    {% for error in form.name.errors %}
+        {{ error }}
+    {% endfor %}
+    <br/>
+
+    {{form.expr.label}}
+    {{form.expr()}}
+    {% for error in form.expr.errors %}
+        {{ error }}
+    {% endfor %}
+    <br/>
+
+    {{form.submit()}}
+</form>
+
+<p>{{ error }}</p>
+
+</section>
+<section>
+{% if functions_list %}
+    <p>Currently existing functions:</p>
+    <table>
+        {% for function in functions_list %}
+        <tr>
+            <td>{{ function["name"] }}</td>
+            <td>=</td>
+            <td>{{ function["expression"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+</section>
+{% endblock %}
